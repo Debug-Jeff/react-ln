@@ -3,13 +3,13 @@
 
 function ListGroup() {
   let items = ["New York", "Los Angeles", "Tokyo", "Paris"];
-  items = [];
+  // items = [];
 
-    // const message = items.length === 0 ? <p>No item found</p> : null;;
+  // const message = items.length === 0 ? <p>No item found</p> : null;;
 
-    const getMessage = () => {
-        return items.length === 0 ? <p>No item found</p> : null;;
-    }
+  //const getMessage = () => {
+  //return items.length === 0 ? <p>No item found</p> : null;;
+  //}
 
   return (
     //This is one way to write the code quickly with the Fragment tag
@@ -17,10 +17,17 @@ function ListGroup() {
     //By having an empty tag you can group elements together without having to use a div tag ; the same function as importing a fragment tag from react.
     <>
       <h1>List</h1>
-      { getMessage()}
+      {items.length === 0 ? <p>No item found</p> : null}
+      {items.length === 0 && <p>No item</p>}
       <ul className="list-group">
         {items.map((item) => (
-          <li key={item}>{item}</li>
+          <li
+            className="list-group-item"
+            key={item}
+            onClick={() => console.log("Clicked")}
+          >
+            {item}
+          </li>
         ))}
       </ul>
     </>
